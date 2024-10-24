@@ -3,7 +3,7 @@ const router = express.Router();
 const ChartData = require('../models/ChartData');
 const auth = require('../middleware/auth');
 
-// Get all chart data
+
 router.get('/', auth, async (req, res) => {
     try {
         const data = await ChartData.find().sort({ createdAt: 1 });
@@ -13,7 +13,6 @@ router.get('/', auth, async (req, res) => {
     }
 });
 
-// Add new data point
 router.post('/', auth, async (req, res) => {
     try {
         const { total_kwh, algo_status } = req.body;
@@ -28,7 +27,7 @@ router.post('/', auth, async (req, res) => {
     }
 });
 
-// Filter data by date range
+
 router.get('/filter', auth, async (req, res) => {
     try {
         const { startDate, endDate, algo_status } = req.query;

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import Chart from '../components/Chart';
 import LogForm from '../components/LogForm';
+import AccessLogs from '../components/AccessLogs';
 
 export default function Dashboard() {
     const router = useRouter();
@@ -61,9 +62,9 @@ export default function Dashboard() {
     }
 
     return (
-        <div className="container mx-auto p-4">
+        <><div className="container mx-auto p-4">
             <h1 className="text-2xl mb-4">Energy Consumption Dashboard</h1>
-            
+
             {/* Date Filter */}
             <div className="mb-4 p-4 bg-white rounded-lg shadow">
                 <div className="grid grid-cols-3 gap-4">
@@ -71,14 +72,12 @@ export default function Dashboard() {
                         type="date"
                         className="p-2 border rounded"
                         value={dateRange.startDate}
-                        onChange={(e) => setDateRange({...dateRange, startDate: e.target.value})}
-                    />
+                        onChange={(e) => setDateRange({ ...dateRange, startDate: e.target.value })} />
                     <input
                         type="date"
                         className="p-2 border rounded"
                         value={dateRange.endDate}
-                        onChange={(e) => setDateRange({...dateRange, endDate: e.target.value})}
-                    />
+                        onChange={(e) => setDateRange({ ...dateRange, endDate: e.target.value })} />
                     <button
                         onClick={handleDateFilter}
                         className="bg-blue-500 text-white p-2 rounded"
@@ -99,5 +98,10 @@ export default function Dashboard() {
                 <LogForm onSubmit={handleLogSubmit} />
             </div>
         </div>
+        
+        <div className="mt-8">
+                <h2 className="text-xl font-semibold mb-4">Access Logs</h2>
+                <AccessLogs />
+            </div></>
     );
 }

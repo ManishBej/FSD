@@ -3,21 +3,21 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
-// Route imports
+
 const authRoutes = require('./routes/auth');
 const chartDataRoutes = require('./routes/chartData');
 
 dotenv.config();
 const app = express();
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
+
 connectDB();
 
-// Routes
+
 app.use('/api/auth', authRoutes);
 app.use('/api/chart', chartDataRoutes);
 

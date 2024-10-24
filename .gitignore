@@ -1,9 +1,8 @@
 # Frontend
 frontend/node_modules
 frontend/.next
-frontend/.env
-frontend/.env.local
+
+frontend/.vercel
 
 # Backend
 backend/node_modules
-backend/.env
